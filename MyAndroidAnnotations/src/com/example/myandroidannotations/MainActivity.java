@@ -2,8 +2,12 @@ package com.example.myandroidannotations;
 
 
 import android.app.Activity;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
+import com.googlecode.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
@@ -21,6 +25,17 @@ public class MainActivity extends Activity {
 //		return true;
 //	}
 
+	@ViewById(R.id.textView1)
+	TextView textView1;
+	
+	@ViewById(R.id.editName)
+	EditText editName;
+	
+	@Click
+	void buttonName(){
+		String name = editName.getText().toString();
+		textView1.setText(name);
+	}
 	
 	
 }
